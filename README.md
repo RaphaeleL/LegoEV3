@@ -2,4 +2,4 @@
 ## Python
 A Car is controlled with the remote control.
 ## Java
-An other Car follows the first car autonomously
+An other Car follows the first car autonomously.
