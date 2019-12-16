@@ -9,14 +9,15 @@ public class DetectBeacon {
 
 	public static void detectBeacon(IRSensor ir, UltrasonicSensor ur, Move move, int channel, int speed) {
 		
-		if(ur.getDistance() <= 13.0)
+		if(ur.getDistance() <= 13.0) {
 			BoardsBehavior.driveBackwardsAndTurn(ur, move);
-
+		}
 
 		if (ir.getDirectionFromBeacon(channel) > 3) {
 			beaconIsOnRightSide = true;
 			move.driveCurve((speed / 2), 0);
 		}
+
 		if (ir.getDirectionFromBeacon(channel) < -3) {
 			beaconIsOnRightSide = false;
 			move.driveCurve(0, (speed / 2));
@@ -26,6 +27,7 @@ public class DetectBeacon {
 			beaconIsOnRightSide = false;
 			move.driveForward(speed);
 		}
+
 	}
 	
 	public static boolean getIsOnRightSide() {

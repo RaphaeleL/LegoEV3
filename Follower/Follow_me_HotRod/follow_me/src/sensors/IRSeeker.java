@@ -29,27 +29,18 @@ public class IRSeeker {
 	public float getDistance() {
 		ir1.getData(0x48, buf, 1);
 		float distance = Float.NaN;
-		if(buf[0] > 0)
-			distance = buf[0];		
-//		System.out.println("Beacon strenght = " + distance);
-//		Delay.msDelay(3000);
+		if(buf[0] > 0) {
+			distance = buf[0];
+		}
 		return distance;
 	}
 
-	/**
-	 * Richtung des Infarotbeacon vom Infarotball finden
-	 * @return Richtung des Infarotbeacon
-	 */
 	public static int getBeacon() {
 		seek.fetchSample(sample, 0);
 		int direction = (int) sample[0];
-//		System.out.println("Direction: " + direction);
 		return direction;
 	}
 
-	/**
-	 * TODO: Nochmal besprechen
-	 */
 	public static void driveToBall(int speed) {
 		if (getBeacon() == 0) {
 			Move.driveForward(speed);

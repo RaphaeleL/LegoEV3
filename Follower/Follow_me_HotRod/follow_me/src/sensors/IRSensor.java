@@ -21,17 +21,15 @@ public class IRSensor {
 	public static int getDirectionFromBeacon(int channel) {
 		seek.fetchSample(sample, 0);
 		int direction = (int) sample[channel];
-//		System.out.println("Direction: " + direction);
 		return direction;
 	}
 
 	public static int getDistance(int channel) {
 		seek.fetchSample(sample, 0);
 		int distance = (int) sample[channel];
-//		System.out.println("Distance: " + distance);
-		if(distance > 0)
+		if(distance > 0){
 			return distance;
-		
+		}
 		return (distance + 100);
 	}
 

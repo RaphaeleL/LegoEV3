@@ -33,7 +33,6 @@ public class Defence{
 			Delay.msDelay(3800);
 			ModesController.setIsInDefenceMode(false);
 			ModesController.setIsInDriveToBallMode(true);
-//			ModesController.setIsInGamingMode(false);
 		}
 	}
 	

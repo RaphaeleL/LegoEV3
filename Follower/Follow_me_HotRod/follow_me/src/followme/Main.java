@@ -34,37 +34,19 @@ public class Main {
 				while (is.getDistance() < 60.0 || Float.isNaN(is.getDistance())) {
 					modes.DriveToBall.driveToBall(is, ur, move); //
 					System.out.println("Driving to Ball");
-					// is.driveToBall(400);
 				}
-				// Shot.backToPosition(-35);
-				// Delay.msDelay(100);
-
 				modes.ModesController.setIsInDriveToBallMode(false);
 				modes.ModesController.setIsInAttackMode(true);
 			}
-
-			// while (modes.ModesController.getIsInAttackMode() == true) {
-			// System.out.println("play attack");
-			// // modes.ModesController.setIsInAttackMode(true);
-			// Sound.beep();
-
 			while (modes.ModesController.getIsInAttackMode() == true) {
 				System.out.println("Playing Attack");
 				if (is.getDistance() <= 40.0) {
-//					Sound.beep();
 					modes.ModesController.setIsInAttackMode(false);
 					modes.ModesController.setIsInDriveToBallMode(true);
-					// Shot.backToPosition(50);
 				} else {
 					modes.Attack.playAttack(ir, ur, move, 0, shot, 400);
 				}
 			}
-			// if (modes.ModesController.getIsInAttackMode() == true) {
-			// modes.ModesController.setIsInAttackMode(false);
-			// modes.ModesController.setIsInDefenceMode(true);
-			// }
-			// }
-			// }
 			while (modes.ModesController.getIsInDefenceMode() == true) {
 				System.out.println("Play defence");
 				modes.ModesController.setIsInDefenceMode(true);
@@ -80,18 +62,15 @@ public class Main {
 		}
 	}
 
-	// Gegner hat den Ball, also zum eigenen Tor fahren
 	private static boolean playDefence() {
 		return equalInRange(ir.getDirectionFromBeacon(gegnerChannel), ur.getDirection(), 3)
 				&& equalInRange(ir.getDistance(gegnerChannel), (int) ur.getDistance(), 3);
 	}
 
-	// Hat den Ball selbst, also zum Tor fahren
 	private static boolean playAttack() {
 		return ur.getDirection() < 3 && ur.getDirection() > -3 && ur.getDistance() < 10;
 	}
 
-	// Gegner hat nicht den Ball, also zum Ball fahren
 	private static boolean driveToBall() {
 		return !equalInRange(ir.getDirectionFromBeacon(gegnerChannel), ur.getDirection(), 3);
 	}

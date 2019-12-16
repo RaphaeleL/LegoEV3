@@ -1,9 +1,5 @@
 package modes;
 
-/**
- * Statemaschine um die Spielmodi des Roboters zu steuern
- *
- */
 public class ModesController {
 	private static boolean isInAttackMode;
 	private static boolean isInDefenceMode;
