@@ -22,7 +22,6 @@ public class Main {
 	private static int gegnerischesTorChannel = 3;
 
 	public static void main(String[] args) {
-
 		modes.ModesController.setIsInGamingMode(true);
 		System.out.println("In Main start");
 
