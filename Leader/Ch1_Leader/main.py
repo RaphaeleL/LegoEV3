@@ -21,7 +21,8 @@ class HotRod():
     def forward(self): self.engine.run(self.speed_of_engine)
     def moveLeft(self): self.wheels.run_time(self.speed_of_wheels, self.time_of_wheels)
     def moveRight(self): self.wheels.run_time(-1 * self.speed_of_wheels, self.time_of_wheels)
-    def checkBattery(self, limit): if self.brick.battery.voltage() < limit: self.brick.sound.beep()
+    def checkBattery(self, limit): 
+        if self.brick.battery.voltage() < limit: self.brick.sound.beep()
     def setLight(self, color): self.brick.light(color)
     def stopEngine(self): self.engine.stop()
     def stopWheels(self): self.wheels.stop()
@@ -51,4 +52,3 @@ class HotRod():
             self.checkBattery(7000)
 hr = HotRod(Motor(Port.D), Motor(Port.A), InfraredSensor(Port.S4), 2000, 500, 250)
 hr.start()
-
