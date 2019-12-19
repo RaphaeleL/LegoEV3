@@ -2,7 +2,6 @@ package followme;
 
 import lejos.hardware.port.MotorPort;
 import lejos.hardware.port.SensorPort;
-import modes.Shot;
 import sensors.IRSeeker;
 import sensors.IRSensor;
 import sensors.UltrasonicSensor;
@@ -15,7 +14,6 @@ public class Main {
 	private static UltrasonicSensor ur = new UltrasonicSensor(SensorPort.S4);
 	private static IRSeeker is = new IRSeeker(SensorPort.S3);
 	private static Move move = new Move(MotorPort.A, MotorPort.D);
-	private static Shot shot = new Shot();
 
 	private static int gegnerChannel = 1;
 	private static int eigenesTorChannel = 2;
@@ -44,7 +42,7 @@ public class Main {
 					modes.ModesController.setIsInAttackMode(false);
 					modes.ModesController.setIsInDriveToBallMode(true);
 				} else {
-					modes.Attack.playAttack(ir, ur, move, 0, shot, 400);
+					modes.Attack.playAttack(ir, ur, move, 0, 400);
 				}
 			}
 			while (modes.ModesController.getIsInDefenceMode() == true) {

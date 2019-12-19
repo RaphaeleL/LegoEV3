@@ -7,7 +7,7 @@ import sensors.UltrasonicSensor;
 
 public class DriveToBall {
 
-	public static void driveToBall(IRSensor ir, UltrasonicSensor ur, Move move, int channel, Shot shot, int speed) {
+	public static void driveToBall(IRSensor ir, UltrasonicSensor ur, Move move, int channel, int speed) {
 
 		ModesController.setIsInDriveToBallMode(true);
 		if(ur.getDistance() <= 20.0){

@@ -1,5 +1,4 @@
 package followme;
-import modes.Shot;
 
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.port.Port;
@@ -47,7 +46,6 @@ public class Move {
 
 		motor1.close();
 		motor2.close();
-		Shot.releaseBall();
 	}
 
 	public static void turnAround(int speedLeft, int speedRight) {

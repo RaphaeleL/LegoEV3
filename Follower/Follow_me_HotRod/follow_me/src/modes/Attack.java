@@ -5,7 +5,7 @@ import sensors.*;
 
 public class Attack {
 	
-	public static void playAttack(IRSensor ir, UltrasonicSensor ur, Move move, int channel, Shot shot, int speed) {
+	public static void playAttack(IRSensor ir, UltrasonicSensor ur, Move move, int channel, int speed) {
 		
 		if(ur.getDistance() <= 20.0)
 			BoardsBehavior.driveBackwardsAndTurn(ur, move);
@@ -17,7 +17,6 @@ public class Attack {
 					
 
 		if (ir.getDistance((channel + 1)) <= 20.0) {
-			shot.shot();
 			ModesController.setIsInAttackMode(false);
 			modes.ModesController.setIsInDefenceMode(true);
 		}
