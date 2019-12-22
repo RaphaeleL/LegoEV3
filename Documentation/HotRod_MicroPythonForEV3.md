@@ -32,7 +32,7 @@ Um die microSD Karte zu aktualisieren, muss erneut ein [EV3 MicroPython Image](h
 ### EV3 Stein verwenden
 Um mit dem EV3 Stein zu arbeiten, muss die microSD Karte wie folgt eingesetzt werden.
 * Der EV3 Stein sollte ausgeschlatet sein, falls er dies nicht bereits ist.
-* Die microSD KArte muss an den vorgesehenen Platz ein.
+* Die microSD Karte muss an den vorgesehenen Platz ein.
     * Falls notwendig versehen muss die Karte mit einer Klebefolie, damit diese leichter entnommen werden kann.
 * Der EV3 Stein kann wieder eingeschaltet werden.
 
@@ -536,56 +536,90 @@ ___
 ### Strom: mA
 Elektrischer Strom wird in Milliampere angegeben.
 
-## Beispielcode HotRod
-
-Der HotRod hat in Front auf der "Motorhaube" einen Infrarot Sensor der Ihm (im idealfall, je nach Geschwindigkeit und Position) von einem Frontalzusammenstoß mit einem Objekt bewahrt. Dieser dient ebenso als Empfänger der Fernsteuerung, hierbei ist nicht notwenig stets vor dem Auto zu sein. Falls die `last_pressed` Variable den Wert -1 hat, wird gerade offentsichlicht nichts gedrückt auf der Fernbedienung. Mit diesem Effekt fährt und lenkt das Auto nur dann, wenn ein Knopf gedrückt wurde. Falls einem das Auto zu schnell oder zu langsam fährt bzw. lenkt kann man dies mit den dazugehörigen Variablen runter oder hochsteuern. 
+## Beispielcode Hot Rod
+Im folgenden ist ein Beispiel Code um ein Fahrzeug mit einer Infrarot Fernbedienung zu steuern. Bei dem Fahrzeug handelt es ich um den Hot Rod aus der Projektarbeit von Raphaele Salvatore Licciardo. Achtung: Dieser Code funktioniert nur mit einer realen Auto Lenkung. Eine Lenkung wie ihn die üblichen Roboter verwenden (Rechtes Rad fährt schneller als Links = Rechtskurve) funktioniert nicht mit diesem Code, ist aber einfach umzuschreiben. Nun ein paar Informationen zu dem Hot Rod an sich:
+Der HotRod hat in Front auf der "Motorhaube" einen Infrarot Sensor der Ihm (im idealfall, je nach Geschwindigkeit und Position) von einem Frontalzusammenstoß mit einem Objekt bewahrt. Dieser dient ebenso als Empfänger der Fernsteuerung, hierbei ist nicht notwenig stets vor dem Auto zu sein. Eine `for-each` Schleife geht hierbei die einzelnen Listeneinträge der empfangenen (gedrückten) Knöpfe durch. Falls einer der Einträge für eine Richtung o. ä. steht, übe diese Aktion aus, falls nicht, bliebe einfach stehen. Die Geschwindigkeit des Antriebes ist auf maximum eingestellt, d. h. er fährt deutlich schneller im Vergleich zu anderen Robotern, doch auch dies kann mit einer entsprechenden Variablenveränderung geändert werden. Die Lenkungsgeschwindigkeit ist hierbei deutlich geringer um einen idealen Einschlag zu erzielen. 
+Doch zu dem Auto an sich gibt es mehr Informationen in der Dokumentation, dieser Code dient nur zur Veranschaulichung was man mit MicroPython for EV3 alles entwickeln kann.
 
 ```python
 #!/usr/bin/env pybricks-micropython
 
-# Import der notwendigen Libarys
+# Import der notwendigen Librarys
 from pybricks import ev3brick as brick
 from pybricks.ev3devices import (Motor, TouchSensor, ColorSensor, InfraredSensor, UltrasonicSensor, GyroSensor)
 from pybricks.parameters import (Port, Stop, Direction, Button, Color, SoundFile, ImageFile, Align)
 from pybricks.tools import print, wait, StopWatch
 from pybricks.robotics import DriveBase
 
-# Initialisierung der Motoren
-wheels = Motor(Port.A)
-steering = Motor(Port.B)
+# Initialisierung der Hardware
+engine, wheels, infrared = Motor(Port.D), Motor(Port.A), InfraredSensor(Port.S4)
 
-# Initialisierung der Infrarot Sensoren
-fronteyes = InfraredSensor(Port.S4)
+# Initialisierung der notwendigen Konstanten
+speed_of_engine, speed_of_wheels, time_of_wheels = 2000, 500, 250
 
-# Initalisierung der Geschwindigkeiten
-speed_of_wheels = 1000
-speed_of_steering = 500
+# Zum Start bitte einmal:
+# - einen Biebton
+brick.sound.beep(1500, 1000, 50)
+# - Hallo sagen
+brick.sound.file(SoundFile.HELLO)
+# - Display leeren
+brick.display.clear()
+# - Augen anzeigen
+brick.display.image(ImageFile.UP)
+# - Hot Rod bei Koordinate 60 und 10 anzeigen
+brick.display.text("HotRod", (60, 10))
 
-while True:
-    # Bekomme den Abstand zum nächsten Objekt vor dem HotRod
-    distance_to_front = fronteyes.distance()
-
-    # Antrieb fährt 2s Rückwärts, weil man (fast) gegen ein Objekt fuhr
-    if distance_to_front < 50:
-        engine.run(-1 * speed_of_wheels, 2000)
-    else:
-        # Bekomme die gedrückten Knöpfe der Fernbedienung (Channel 1) 
-        # die mit den Infrarot Sucher eingefangen worden.
-        pressed_key = fronteyes.buttons(1)
-
-        # Iteriere die Liste der gedrückten Knöpfen
-        for button in pressed_key:
+while True: 
+    # Berechne die Distance nach vorne
+    distance_to_front = infrared.distance()
+    # Gegenstand vorraus?
+    if distance_to_front < 50: 
+        # Antrieb stoppen
+        engine.stop()
+        # Räder stoppen
+        wheels.stop()
+        # Alarm 
+        brick.sound.file(SoundFile.ERROR_ALARM)
+        # Anzeige Rot färben
+        brick.light(Color.RED)
+        # Display leeren
+        brick.display.clear()
+        # Ausgeknockete Augen anzeigen
+        brick.display.image(ImageFile.KNOCKED_OUT)
+        # - Hot Rod bei Koordinate 60 und 10 anzeigen
+        brick.display.text("HotRod", (60, 10))
+    # Freie Fahrt vorraus!
+    else: 
+        # Anzeige Grün färben
+        brick.light(Color.GREEN)
+        # Display leeren
+        brick.display.clear()
+        # Augen anzeigen
+        brick.display.image(ImageFile.UP)
+        # - Hot Rod bei Koordinate 60 und 10 anzeigen
+        brick.display.text("HotRod", (60, 10))
+        # Empfange gedrückte Knöpfe von Kanal 1
+        pressed_key = infrared.buttons(1)
+        # Gehe diese Liste durch
+        for button in pressed_key: 
+            # Gebe gas
             if button == 128:
-                engine.run(speed_of_wheels)
-            # Rot Unten -> Rückwärts / Bremsen
-            elif button == 2:
+                engine.run(speed_of_engine)
+            # Bremse ab
+            elif button == 2: 
                 engine.stop()
-            # Blau Oben -> Links Lenken
+            # Fahre nach Links
             elif button == 512:
-                wheels.run_time(speed_of_steering, 250)
-                button = -1
-            # Blau Unten -> Rechts Lenken
-            elif button == 8:
-                wheels.run_time(-1 * speed_of_steering, 250)
-                button = -1 
+                wheels.run_time(speed_of_wheels, time_of_wheels)
+            # Fahre nach Rechts
+            elif button == 8: 
+                wheels.run_time(-1 * speed_of_wheels, time_of_wheels)
+            # Mache nichts und Stoppe Antrieb und Räder
+            else: 
+                engine.stop()
+                wheels.stop()
+    # Batterie befindet sich in einem Gefährlichen Level?
+    if brick.battery.voltage() < 7000: 
+        # Bieb Ton 
+        brick.sound.beep()
 ```
