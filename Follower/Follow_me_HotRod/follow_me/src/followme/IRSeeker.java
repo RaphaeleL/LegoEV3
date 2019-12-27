@@ -1,6 +1,5 @@
-package sensors;
+package followme;
 
-import followme.Move;
 import lejos.hardware.port.Port;
 import lejos.hardware.sensor.HiTechnicIRSeekerV2;
 import lejos.hardware.sensor.SensorMode;
