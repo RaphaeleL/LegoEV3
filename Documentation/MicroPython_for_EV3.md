@@ -538,8 +538,7 @@ Elektrischer Strom wird in Milliampere angegeben.
 
 ## Beispielcode HotRod
 
-Der HotRod hat in Front auf der "Motorhaube" einen Infrarot Sensor der Ihm (im idealfall, je nach Geschwindigkeit und Position) von einem Frontalzusammenstoß mit einem Objekt bewahrt. Dieser dient ebenso als Empfänger der Fernsteuerung, hierbei ist nicht notwenig stets vor dem Auto zu sein. Falls die `last_pressed` Variable den Wert -1 hat, wird gerade offentsichlicht nichts gedrückt auf der Fernbedienung. Mit diesem Effekt fährt und lenkt das Auto nur dann, wenn ein Knopf gedrückt wurde. Falls einem das Auto zu schnell oder zu langsam fährt bzw. lenkt kann man dies mit den dazugehörigen Variablen runter oder hochsteuern. 
-
+Der HotRod hat in Front auf der "Motorhaube" einen Infrarot Sensor der Ihm (im idealfall, je nach Geschwindigkeit und Position) von einem Frontalzusammenstoß mit einem Objekt bewahrt. Dieser dient ebenso als Empfänger der Fernsteuerung, hierbei ist nicht notwenig stets vor dem Auto zu sein. 
 ```python
 #!/usr/bin/env pybricks-micropython
 
@@ -583,9 +582,7 @@ while True:
             # Blau Oben -> Links Lenken
             elif button == 512:
                 wheels.run_time(speed_of_steering, 250)
-                button = -1
             # Blau Unten -> Rechts Lenken
             elif button == 8:
                 wheels.run_time(-1 * speed_of_steering, 250)
-                button = -1 
 ```
