@@ -4,10 +4,6 @@ import followme.Move;
 import lejos.hardware.port.Port;
 import lejos.hardware.sensor.HiTechnicIRSeekerV2;
 import lejos.hardware.sensor.SensorMode;
-import lejos.utility.Delay;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
-
 public class IRSeeker {
 
 	private HiTechnicIRSeekerV2 ir1;
@@ -17,13 +13,11 @@ public class IRSeeker {
 
 	@SuppressWarnings("deprecation")
 	public IRSeeker(Port port) {
-		
 		this.ir1 = new HiTechnicIRSeekerV2(port);
 		this.seek = ir1.getModulatedMode();
 		this.sample = new float[seek.sampleSize()];
 		ir1.getData(0x48, buf, 1);
 		ir1.getAddress();
-
 	}
 	
 	public float getDistance() {
