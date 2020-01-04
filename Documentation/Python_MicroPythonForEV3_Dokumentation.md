@@ -1,10 +1,10 @@
 # Lego Education
 ## Erste Schritte mit LEGO MINDSTORMS Education EV3 - MicroPython
-Bei unklarheiten wird auf die [Lego Education Webseite](https://education.lego.com/de-de/support/mindstorms-ev3/python-for-ev3) verwiesen. Die folgenden Bilder stammen ebenso von der Lego Education Webseite. Werden jedoch im laufenden mit eigenen Bildern ersetzt.
+Bei Unklarheiten wird auf die [Lego Education Webseite](https://education.lego.com/de-de/support/mindstorms-ev3/python-for-ev3) verwiesen. Die folgenden Bilder stammen ebenso von der Lego Education Webseite. Werden jedoch im laufenden mit eigenen Bildern ersetzt.
 ### Benötigte Bausteine
-* Einen Computer
+* Einen Windows oder Apple Computer
 * Eine Internetverbindung sowie Administratorrechte um benötigte Programme herunterladen zu können.
-* Eine microSD Karte die mindestens 4 GB und maximal 32 GB Speicherkapazität aufweißt.
+* Eine MicroSD Karte die mindestens 4 GB und maximal 32 GB Speicherkapazität aufweißt.
 * Ein vollständiges EV3 Set, d. h. EV3 Stein mit einem Mini USB Verbindungskabel.
 
 <img src="Bilder/Vorbereitung.png" alt="Vorbereitung" width="400">
@@ -17,42 +17,42 @@ Um mit MicroPython Programmen arbeiten zu können wird eine spezielle Entwicklun
 <img src="Bilder/Extension.png" alt="Extension" width="400">
 
 ### Preparation der microSD Karte
-Damit das MicroPython Programm erfolgreich gestartet werden kann, muss die microSD Karte vorbereitet werden. Dafür müssen alle Dateien auf die microSD Karte gespeichert werden. Vorsicht, denn damit wird alles auf dem EV3 Stein gelöscht.
+Damit das MicroPython Programm erfolgreich gestartet werden kann, muss die MicroSD Karte vorbereitet werden. Dafür müssen alle Dateien auf die MicroSD Karte gespeichert werden. Vorsicht, denn damit wird alles auf dem EV3 Stein gelöscht.
 * Herunterladen des [EV3 MicroPython Image](https://le-www-live-s.legocdn.com/sc/media/files/ev3-micropython/ev3micropythonv100sdcardimage-4b8c8333736fafa1977ee7accbd3338f.zip) herunter. Es werden keine weiteren Präparation mit dem Ordner benötigt.
-* Herunterladen und Installieren des [Etcher Flashing Tool](https://www.balena.io/etcher/). Mit dem Flashing Tool wird die microSD Karte vorbereitet.
-* microSD Karte einstecken und das Flashing Tool starten. Es sollte den Anweisungen auf dem Bildschirm folge geleistet werden:
-    * microSD Karte (mit dem EV3 MicroPython Image) auswählen.
+* Herunterladen und Installieren des [Etcher Flashing Tool](https://www.balena.io/etcher/). Mit dem Flashing Tool wird die MicroSD Karte vorbereitet.
+* MicroSD Karte einstecken und das Flashing Tool starten. Es sollte den Anweisungen auf dem Bildschirm Folge geleistet werden:
+    * MicroSD Karte (mit dem EV3 MicroPython Image) auswählen.
     * Flashing Prozess starten. Dies kann einige Minuten dauern, bitte die Karte nicht entfernen.
 
-### Aktualisierung der microSD Karte
-Um die microSD Karte zu aktualisieren, muss erneut ein [EV3 MicroPython Image](https://le-www-live-s.legocdn.com/sc/media/files/ev3-micropython/ev3micropythonv100sdcardimage-4b8c8333736fafa1977ee7accbd3338f.zip) ausgewählt werden. Der Flashing Prozess muss erneut ausgeführt werden, dabei sollte beachtet werden das alle Dateien auf der Karte dabei gelöscht werden.
+### Aktualisierung der MicroSD Karte
+Um die MicroSD Karte zu aktualisieren, muss erneut ein [EV3 MicroPython Image](https://le-www-live-s.legocdn.com/sc/media/files/ev3-micropython/ev3micropythonv100sdcardimage-4b8c8333736fafa1977ee7accbd3338f.zip) ausgewählt werden. Der Flashing Prozess muss erneut ausgeführt werden, dabei sollte beachtet werden das alle Dateien auf der Karte dabei gelöscht werden.
 
 <img src="Bilder/Etcher.png" alt="Etcher" width="400">
 
 ### EV3 Stein verwenden
-Um mit dem EV3 Stein zu arbeiten, muss die microSD Karte wie folgt eingesetzt werden.
+Um mit dem EV3 Stein zu arbeiten, muss die MicroSD Karte wie folgt eingesetzt werden.
 * Der EV3 Stein sollte ausgeschlatet sein, falls er dies nicht bereits ist.
-* Die microSD KArte muss an den vorgesehenen Platz ein.
+* Die microSD Karte muss an den vorgesehenen Platz ein.
     * Falls notwendig versehen muss die Karte mit einer Klebefolie, damit diese leichter entnommen werden kann.
 * Der EV3 Stein kann wieder eingeschaltet werden.
 
 <img src="Bilder/EV3Stein.png" alt="EV3 Stein" width="400">
 
 ### EV3 Stein Ein- und Ausschalten
-Um den EV3 Stein _einzuschalten_ muss die dunkelgraue Taste in der mitte betätigt werden. Währrend dem Hochfahren blinkt die Statusleuchte Orange auf und Text erscheint auf dem Display. Erst wenn die Statusleuchte Grün aufleuchtet ist der EV3 Stein einsatzbereit.
+Um den EV3 Stein _einzuschalten_ muss die dunkelgraue Taste in der Mitte betätigt werden. Während dem Hochfahren blinkt die Statusleuchte Orange auf und Text erscheint auf dem Display. Erst, wenn die Statusleuchte Grün aufleuchtet, ist der EV3 Stein einsatzbereit.
 
-Um den EV3 Stein _auszuschalten_ muss die Zurücktaste betätigt werden, währrend man sich im Hauptmenü befindet. Nun wird _Power Off_ ausgewählt und der EV3 Stein schaltet sich aus.
+Um den EV3 Stein _auszuschalten_ muss die Zurück Taste betätigt werden, während man sich im Hauptmenü befindet. Nun wird _Power Off_ ausgewählt und der EV3 Stein schaltet sich aus.
 
 ### Motor- und Sensorwerte
 Es sollte der _Device Browser_ ausgewählt werden. Nun muss der gewünschte Typ ausgewählt werden, z. B. _Motors_ für die Motorwerte. Anschließend kann _Watch Values_ bestätigt werden.
 
 ## Erstellen und Ausführen von MicroPython Programmen
-### Anlegen von Projekten
+### Anlegen von Projekts
 Damit ein neues Projekt angelegt werden kann, muss in Visual Studio Code das EV3 MicroPython Symbol ausgewählt werden. In dem nun geöffneten Textfeld kann der Projektnamen eingegeben werden. Anschließend wird der Speicherort des Programmes ausgewählt und mit _chooos folder_ bestätigt.
 
 <img src="Bilder/ErstellenProjekt.png" alt="Erstellen eines Projektes" width="400">
 
-Nun hat sich in dem Explorer eine Python Datei namens main&#46;py erstellt. Diese wird geöffnet und mit deinem Programm beschrieben. Von dieser Datei aus startet der EV3 Stein das Programm. Falls noch keine Erfahrung in der Programmierung mit Python besteht, wird empfohlen den bereits vorhandenen Code lediglich zu erweiteren.
+Nun hat sich in dem Explorer eine Python Datei namens main&#46;py erstellt. Diese wird geöffnet und mit dem Programm beschrieben. Von dieser Datei aus startet der EV3 Stein das Programm. Falls noch keine Erfahrung in der Programmierung mit Python besteht, wird empfohlen den bereits vorhandenen Code lediglich zu erweitern.
 
 ### Öffnen von Projekten
 Falls nun bereits ein MicroPython Projekt in Visual Studio Code erstellt worden ist, kann es wie folgt geöffnet werden:
@@ -68,7 +68,7 @@ Um das Programm nun auf den EV3 Stein zu übertragen muss dieser eingeschaltet �
 ### Programm Herunterladen und Ausführen
 Um ein MicroPython Programm _ausführen_ zu können, kann entweder mittels der _F5 Taste_ oder in dem Debug Fenster mittels dem grünen _Play Pfeil_ gestartet werden. Ausgabe Befehle wie _print_ wird in dem Ausgabefenster angezeigt.
 
-Um ein MicroPython _stoppen_ zu können, wird das kleine _Rote Quadrat_ neben dem _Play Pfeil_ betätigt.
+Um ein MicroPython _stoppen_ zu können, wird das kleine _rote Quadrat_ neben dem _Play Pfeil_ betätigt.
 
 <img src="Bilder/CodeAusführenBeenden.png" alt="Erstellen eines Projektes" width="400">
 
@@ -101,7 +101,7 @@ brick.sound.beep(1000, 500)
 ```
 
 ### Verwalten von Dateien auf dem EV3 Stein
-Nun ist ein Projekt erfolgreich auf dem EV3 Stein geladen und gespeichert. In Visual Studio Code kannst du nun an den Dateien, die auf deinem Computer sind,  arbeiten oder an den Dateien, die auf deinem EV3 Stein geladen sind, arbeiten. Mit einem Rechtsklick öffnet sich ein Kontextmenü in dem du die Datei ausführen, von dem EV3 Stein löschen, auf den Computer hochladen oder mehr Informationen anzeigen.
+Nun ist ein Projekt erfolgreich auf dem EV3 Stein geladen und gespeichert. In Visual Studio Code kannst man nun an den Dateien, die auf dem Computer sind,  arbeiten oder an den Dateien, die auf dem EV3 Stein geladen sind, arbeiten. Mit einem Rechtsklick öffnet sich ein Kontextmenü, in dem man die Datei ausführen, von dem EV3 Stein löschen, auf den Computer hochladen oder mehr Informationen anzeigen.
 
 <img src="Bilder/DateiVerwaltung.png" alt="Verwalten von Dateien auf dem EV3 Stein" width="400">
 
@@ -118,7 +118,7 @@ Um ein MicroPython Programm auf dem EV3 Stein (auf dem Robotor) ausführen zu k�
 > **Return Typ** Liste
 
 ```python
-# Gebe 'Der Linke Button ist gedrückt.' auf der Kommandozeile aus wenn der Linke Button gedrückt worden ist.
+# Gebe 'Der Linke Button ist gedrückt.' auf der Kommandozeile aus wen der Linke Button gedrückt worden ist.
 if button.LEFT in brick.buttons():
     print("Der Linke Button ist gedrückt.")
 
@@ -132,7 +132,7 @@ ___
 Die Farbe der EV3 Stein Leuchte wird eingestellt.
 > **Parameter `color(Color)`** Farbe des Lichts, `None` für keins und z. B. `Color.BLACK` für deine Schwarze Leuchte.
 ```python
-# Gebe ein Rotes Licht von dir
+# Gebe ein rotes Licht von dir
 brick.light(Color.RED)
 
 # Mache das Licht aus
@@ -146,10 +146,10 @@ Die Frequenz, Dauer und Lautstärke von einem Piepton des EV3 Stein kann eingest
 > **Parameter `duration: int`** Dauer des Pieptons in ms, Standard: 100 \
 > **Parameter `volume: int`** Lautstärke des Pieptons in Prozent, Standard: 300
 ```python
-# Normaler Piep Ton
+# normaler Piep Ton
 brick.sound.beep()
 
-# Eingestellter Piep Ton
+# eingestellter Piep Ton
 brick.sound.beep(750, 2000, 80)
 ```
 
@@ -166,7 +166,7 @@ Spielt ein Datei mit angegebener Lautstärke ab.
 > **Parameter `file_name: str`** Abzuspielende Datei
 > **Parameter `volume: int`** Lautstärke
 ```python
-# Spiele ein vorinstalliertes File ab
+# Spiele ein installiertes File ab
 brick.sound.file(SoundFile.HELLO)
 
 # Spiele in eigenes File ab
@@ -198,16 +198,16 @@ brick.display.text('Mindstorm')
 Gebe eine Bilddatei auf dem Display aus. Entweder durch das Alignment oder durch die Coordinaten. Nicht durch beides.
 > **Parameter `file_name: str`** Dateipfad zur Datei, relativ oder absolut \
 > **Parameter `alignment: Align`** Platzierung der Datei auf dem Bildschirm. Standard ist Center \
-> **Parameter `(x,y): Tupel`** Koordinaten - Tupel \
+> **Parameter `(x, y): Tupel`** Koordinaten - Tupel \
 > **Parameter `clear:  bool`** Anzeige kann vor dem Anzeigen des Bildschirms zurückgesetzt werden.
 ```python
-# Zeige zwei nach oben schauende Augen
+# zeige zwei nach oben schauende Augen
 brick.display.image(ImageFile.UP)
 
-# Zeige ein eigenes Bild
+# zeige ein eigenes Bild
 brick.display.image('hochschauendeAugen.png')
 
-# Zeige ein eigendes Bild: oben-links - Anzeige wird gelöscht
+# zeige ein eigendes Bild: oben-links - Anzeige wird gelöscht
 brick.display.image('hochschauendeAugen.png', Align.TOP_LEFT, clear=True)
 ```
 ___
@@ -217,7 +217,7 @@ Akkuspannung wird abgefragt.
 > **Return** Akkuspannung \
 > **Return Typ** voltage: mV
 ```python
-# Gebe einen Warntöne bei weniger wie 7V ab
+# gebe einen Warntöne bei weniger wie 7V ab
 if brick.battery.voltage() < 7000:
     brick.sound.beeps(100)
 ```
@@ -238,8 +238,8 @@ Legt die Liste der Zahnräder fest, die am Motor verbunden sind.
 ___
 ### Motoren ohne Drehsensor
 `dc(duty)`
-Arbeitszyklus für Motoren die keinen Drehsensor haben, wird festgelegt.
-> **Parameter `duty: % `** Arbeitszyklus von -100% bis 100%
+Arbeitszyklus für Motoren, die keinen Drehsensor haben, wird festgelegt.
+> **Parameter `duty: %`** Arbeitszyklus von -100% bis 100%
 ___
 ### Motoren mit Drehsensor
 `angle()`
@@ -267,35 +267,35 @@ Motor wird angehaltenn
 `run_time(speed, time, stop_type, wait)`
 Motor läuft eine bestimmte Zeit lang konstant.
 > **Parameter `speed: deg/s`** Geschwindigkeit des Motors \
-> **Parameter `stop_type: Stop`** Bestimmt ob der Motor auslaufen oder abbremsen soll. Standard: Stop.COAST \
+> **Parameter `stop_type: Stop`** bestimmt ob der Motor auslaufen oder abbremsen soll. Standard: Stop.COAST \
 > **Parameter `time: ms`** Dauer der Fahrt \
-> **Parameter `wait: bool`** Bestimmt ob die Fahrt zuerst beendet sein muss, bevor das restliche Programm zu ende ausführt. Dabei wartet das Programm, die zeitdauert `time`.
+> **Parameter `wait: bool`** bestimmt ob die Fahrt zuerst beendet sein muss, bevor das restliche Programm zu Ende ausführt. Dabei wartet das Programm, die Zeitdauer `time` ab.
 
 `run_angle(speed, rotation_angle, stop_type, wait)`
 Motor läuft bis zu einem bestimmten Winkel kostant.
 > **Parameter `speed: deg/s`** Geschwindigkeit des Motors \
-> **Parameter `stop_type: Stop`** Bestimmt ob der Motor auslaufen oder abbremsen soll. Standard: Stop.COAST \
+> **Parameter `stop_type: Stop`** bestimmt ob der Motor auslaufen oder abbremsen soll. Standard: Stop.COAST \
 > **Parameter `rotation_angle: deq`** Drehwinkel auf den zurückgesetzt werden soll \
-> **Parameter `wait: bool`** Bestimmt ob die Fahrt zuerst beendet sein muss, bevor das restliche Programm zu ende ausführt. Dabei wartet das Programm, die zeitdauert `time`.
+> **Parameter `wait: bool`** bestimmt ob die Fahrt zuerst beendet sein muss, bevor das restliche Programm zu Ende ausführt. Dabei wartet das Programm, die zeitdauer `time`ab.
 
 `run_target(speed, rotation_angle, stop_type, wait)`
 Motor läuft bis zu einem bestimmten Zielwinkel kostant.
 > **Parameter `speed: deg/s`** Geschwindigkeit des Motors \
-> **Parameter `stop_type: Stop`** Bestimmt ob der Motor auslaufen oder abbremsen soll. Standard: Stop.COAST \
+> **Parameter `stop_type: Stop`** bestimmt ob der Motor auslaufen oder abbremsen soll. Standard: Stop.COAST \
 > **Parameter `rotation_angle: deq`** Drehwinkel auf den zurückgesetzt werden soll \
-> **Parameter `wait: bool`** Bestimmt ob die Fahrt zuerst beendet sein muss, bevor das restliche Programm zu ende ausführt. Dabei wartet das Programm, die zeitdauert `time`.
+> **Parameter `wait: bool`** bestimmt ob die Fahrt zuerst beendet sein muss, bevor das restliche Programm zu Ende ausführt. Dabei wartet das Programm, die Zeitdauer `time`ab.
 
 `track_target(target_angle)`
-Zielwinkel wird anvisiert und im laufe der Zeit angepasst.
+Zielwinkel wird anvisiert und im Laufe der Zeit angepasst.
 > **Parameter `target_angle: deg`** Zielwinkel an den sich der Motor anpassen soll
 
 `stalled()`
-Gibt zurück ob der Motor blockiert, d.  h. wenn sich der Motor bei Maximalem Drehmoment nicht mehr bewegen kann.
+Gibt zurück, ob der Motor blockiert, d.  h. wenn sich der Motor bei maximalem Drehmoment nicht mehr Bewegen kann.
 > **Return** `True`: Motor blockiert, `False`: Motor blockiert nicht \
 > **Return Typ** bool
 
 `run_until_stalled(speed, rotation_angle, duty_limit)`
-Motor läuft bis er blockiert hat.
+Motor läuft, bis er blockiert hat.
 > **Parameter `speed: deg/s`** Geschwindigkeit des Motors \
 > **Parameter `rotation_angle: deq`** Drehwinkel auf den zurückgesetzt werden soll \
 > **Parameter `duty: % `** Drehmoment des Motors, verhindert das Getriebemechanismen mit vollem Motordrehmoment angetrieben werden.
@@ -307,7 +307,7 @@ Einstellungen für den `dc(duty)` - Befehl werden vorgenommen.
 
 `set_run_settings(max_speed, acceleration)`
 Maximale Geschwindigkeit und Beschleunigung bzw. Abbremsungdes motors wird festgelegt.
-> **Parameter `max_speed: deg/s`** Maximale Geschwindigkeit die der Motor aufbauen kann. \
+> **Parameter `max_speed: deg/s`** maximale Geschwindigkeit die der Motor aufbauen kann. \
 > **Parameter `acceleration: deq/s/s`** Beschleunigung auf die Zielgeschwindigkeit bzw. Abbremsung bis zum Stillstand.
 
 `set_pid_settings(kp, ki, kd, tight_loop_limit, angle_tolerance, speed_tolerance, stall_speed, stall_time)`
@@ -315,11 +315,11 @@ Einstellung für die Positionsregler und Geschwindigkeitsregler.
 > **Parameter `kp: int`** Konstante für die proportionale Position. \
 > **Parameter `ki: int`** Konstante für die integrale Position. \
 > **Parameter `kd: int`** Konstante für die abgeleitete Position. \
-> **Parameter `tight_loop_limit: ms`** Wenn ein Run Befehl in diesem Ziet Intervall ausgeführt wird, nimmt der PID Regler an, dass die Geschwindigkeit direkt gesteuert werden soll. Er ignoriert die vorgebene Geschwindigkeit und nutzt die aus dem `run()`-Befehl. Gut geeinget für Schnelle Kurven etc. \
+> **Parameter `tight_loop_limit: ms`** Wenn ein Run Befehl in diesem Ziet Intervall ausgeführt wird, nimmt der PID Regler an, dass die Geschwindigkeit direkt gesteuert werden soll. Er ignoriert die vorgebene Geschwindigkeit und nutzt die aus dem `run()`-Befehl. Gut geeinget für schnelle Kurven etc. \
 > **Parameter `angle_tolerance: deq`** Abweichung von dem Zielwinkel, bevor es als abgeschlossen gilt. \
-> **Parameter `speed_tolerance: deg/s`** Abweichung von der Zielgeschwindigkeit, bevor es als abgeschlossel gilt. \
-> **Parameter `stall_speed: deg/s`** Motor blockiert aber hat sein Maximum noch nicht erreicht (actuall_speed < stall_speed). \
-> **Parameter `stall_time: deg/s`** Anfälligkeit des Motors zum blockieren kann hiermit gesteuert werden.
+> **Parameter `speed_tolerance: deg/s`** Abweichung von der Zielgeschwindigkeit, bevor es als abgeschlossen gilt. \
+> **Parameter `stall_speed: deg/s`** Motor blockiert, aber hat sein Maximum noch nicht erreicht (actuall_speed < stall_speed). \
+> **Parameter `stall_time: deg/s`** Anfälligkeit des Motors zum Blockieren kann hiermit gesteuert werden.
 ___
 ### Sensoren
 ### Berühungssensor
@@ -370,26 +370,26 @@ ___
 ___
 ### Ultraschallsensor
 `class UltrasonicSensor(port)` wird unterstütz von den Teilen 45544 und 45504.
-> **Parameter `port: Port`** Anschluss, andem der Sensor angeschlossen ist.
+> **Parameter `port: Port`** Anschluss, an dem der Sensor angeschlossen ist.
 
 `distance(silent)` Ultraschallwellen messen den Abstand zwischen Sensor und Objekt.
 > **Parameter `silent: bool`** `True` um den Sensor nach dem Messen abzuschalten. Standard ist `False` \
 > **Return** Abstand in Millimeter \
 > **Return Typ** distance: mm
 
-`presence()` Es wird nach Ultraschallwellen gesucht um zu überprüfen, ob sich andere Ultraschallsensoren in der Nähe befinden.
-> **Return** `True` wenn etwas erfasst wurde, `False` wenn nicht. \
+`presence()` Es wird nach Ultraschallwellen gesucht, um zu überprüfen, ob sich andere Ultraschallsensoren in der Nähe befinden.
+> **Return** `True` ,wenn etwas erfasst wurde, `False`, wenn nicht. \
 > **Return Typ** bool.
 ___
 ### Gyrosensor
 `class GyroSensor(port)` wird unterstütz von den Teilen 45544 und 45505.
-> **Parameter `port: Port`** Anschluss, andem der Sensor angeschlossen ist.
+> **Parameter `port: Port`** Anschluss, an dem der Sensor angeschlossen ist.
 
 `speed()` (Winkel-) Geschwindigkeit des Sensor wird abgerufen.
 > **Return** Winkelgeschwindigkeit des Sensors \
 > **Return Typ** rotational speed: deq/s.
 
-`angle()` Der Kumulierte Winkel des Sensor wird abgerufen.
+`angle()` Der kumulierte Winkel des Sensor wird abgerufen.
 > **Return** Umdrehungswinkel des Sensors \
 > **Return Typ** angle: deg.
 
@@ -408,7 +408,7 @@ ___
 ### Stop
 `COAST` Motor kann sich frei bewegen. \
 `BRAKE` Motor hält kleinen Kräften von äußen relativ gut stand. \
-`HOLD` Motor wird gesteuert um den Winkel zu halten. (Nur bei Motoren mit Drehsensoren).
+`HOLD` Motor wird gesteuert, um den Winkel zu halten. (Nur bei Motoren mit Drehsensoren).
 ___
 ### Color
 `BLACK`, `BLUE`, `GREEN`, `YELLOW`, `RED`, `WHITE`, `BROWN`, `ORANGE`, `PURPLE`
@@ -509,7 +509,7 @@ ___
 Winkel werden (wie in der Mathematik bekannt) mittels Grad gemessen. Dabei kann er minimal 0 und maximal 360 Grad einnehmen.
 ___
 ### Umdrehungsgeschwindigkeit: deg/s
-Auch Winkelgeschwindigkeit genannt, beschreibt wie schnell sich etwas dreht.
+Auch Winkelgeschwindigkeit genannt, beschreibt, wie schnell sich etwas dreht.
 Dabei gilt: 1 deg/s = 1/6 rpm = 0,167 rpm und anders herum.
 ___
 ### Abstand: mm
@@ -536,7 +536,7 @@ ___
 ### Strom: mA
 Elektrischer Strom wird in Milliampere angegeben.
 
-## Beispielcode HotRod
+ ## Beispielcode HotRod
 Der HotRod hat in Front auf der "Motorhaube" einen Infrarot Sensor der Ihm (im idealfall, je nach Geschwindigkeit und Position) von einem Frontalzusammenstoß mit einem Objekt bewahrt. Dieser dient ebenso als Empfänger der Fernsteuerung, hierbei ist nicht notwenig stets vor dem Auto zu sein. Eine `for-each` Schleife geht hierbei die einzelnen Listeneinträge der empfangenen (gedrückten) Knöpfe durch. Falls einer der Einträge für eine Richtung o. ä. steht, übe diese Aktion aus, falls nicht, bliebe einfach stehen. Die Geschwindigkeit des Antriebes ist auf maximum eingestellt, d. h. er fährt deutlich schneller im Vergleich zu anderen Robotern, doch auch dies kann mit einer entsprechenden Variablenveränderung geändert werden. Die Lenkungsgeschwindigkeit ist hierbei deutlich geringer um einen idealen Einschlag zu erzielen. 
 Mehr Informationen zu dem Auto gibt es in der Dokumentation.
 ```python
