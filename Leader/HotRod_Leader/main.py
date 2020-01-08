@@ -1,70 +1,73 @@
 #!/usr/bin/env pybricks-micropython
 
-# Einfügen der Lego Library --> Standardset
+# Insert import Lego Librarys --> Only Standard
 from pybricks import ev3brick as brick
 from pybricks.ev3devices import (Motor, TouchSensor, ColorSensor, InfraredSensor, UltrasonicSensor, GyroSensor)
 from pybricks.parameters import (Port, Stop, Direction, Button, Color, SoundFile, ImageFile, Align)
 from pybricks.tools import print, wait, StopWatch
 from pybricks.robotics import DriveBase
 
-# Initialisierung der Motoren
+# Init of Engine
 engine, wheels, infrared = Motor(Port.D), Motor(Port.A), InfraredSensor(Port.S4)
-# Initialisierung der Constanten
+# Init of Variables
 speed_of_engine, speed_of_wheels, time_of_wheels = 2000, 500, 300
 
-# Start Prozedur
-# - Ton ausgeben
+# Start Procedure
+# - Make a Beep :-)
 brick.sound.beep(1500, 1000, 50)
-# - Hallo sagen
+# - Say Hello
 brick.sound.file(SoundFile.HELLO)
-# - Display beschreiben
+# - Write open eyes and "HotRod" on the Display
 brick.display.clear()
 brick.display.image(ImageFile.UP)
 brick.display.text("HotRod", (60, 10))
 
-# Endlosschleife
+# Infinity Loop
 while True: 
-    # Messe die Distanz nach vorne
+    # Messure the Distance to the front
     distance_to_front = infrared.distance()
-    # Verarbeite den Abstand --> sollte ich bremsen?
+    # Is the Distance Okay? NO!
     if distance_to_front < 50: 
-        # Antriebsmotor stoppen
+        # Stop Engine
         engine.stop()
-        # Lenkmotor stoppen
         wheels.stop()
-        # Bisschen Ton und Licht Effekte zur Verdeutlichung
+        # - Make Alarm --> Possible Crash
         brick.sound.file(SoundFile.ERROR_ALARM)
+        # - Make Red Light on the Brick
         brick.light(Color.RED)
+        # - Write closed eyes and "HotRod" on the Display
         brick.display.clear()
         brick.display.image(ImageFile.KNOCKED_OUT)
         brick.display.text("HotRod", (60, 10))
-    # ich kann fahren
+    # Distance is Okay. You can drive
     else: 
-        # Bisschen Licht zur Verdeutlichtung
+        # - Make Green Light on the Bright
         brick.light(Color.GREEN)
+        # - Write open eyes and "HotRod" on the Display
         brick.display.clear()
         brick.display.image(ImageFile.UP)
         brick.display.text("HotRod", (60, 10))
-        # Bekomme alle gedrückten Knöpfe als Liste (pressed_key = [])
+        # Get the pushed Buttons of the Remote Controll
         pressed_key = infrared.buttons(1)
-        # Gehe die Liste mit einer For-Each Schleife durch
+        # Iterate these list
         for button in pressed_key: 
-            # Gerade aus --> Oben Links
+            # Straight --> Upper Left
             if button == 128: 
                 engine.run(speed_of_engine)
-            # Bremsen --> Unten Links 
+            # Break --> Bottom Left
             elif button == 2: 
                 engine.stop()
-            # Links --> Unten Rechts
-            elif button == 512: #left
+            # Left --> Bottom Right
+            elif button == 512:
                 wheels.run_time(speed_of_wheels, time_of_wheels)
-            # Rechts --> Oben Rechts
-            elif button == 8: #right
+            # Right --> Upper Right
+            elif button == 8:
                 wheels.run_time(-1 * speed_of_wheels, time_of_wheels)
-            # Nichts wurde gedrückt --> Motoren anhalten
+            # Nothing pressed
             else: 
                 engine.stop()
                 wheels.stop()
-    # Geht es der Batterie noch gut?
-    if brick.battery.voltage() < 7000: 
+    # Are the Battery Okay?
+    if brick.battery.voltage() < 7000:
+        # Make a Beep :(
         brick.sound.beep()
