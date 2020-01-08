@@ -75,7 +75,7 @@ while True:
             #brick.sound.file(SoundFile.RED)
         #if color_of_c2 == Color.BLUE:
             #engine.stop()
-            #brick.sound.file(SoundFile.RED)
+            #brick.sound.file(SoundFile.BLUE)
     # Are the Battery Okay?
     if brick.battery.voltage() < 7000:
         # Make a Beep :(
