@@ -9,6 +9,8 @@ public class Main {
 	private static IRSeeker is = new IRSeeker(SensorPort.S3);
 	private static Move move = new Move(MotorPort.A, MotorPort.D);
 
+	private static UltrasonicSensor ur = new UltrasonicSensor(SensorPort.S2);
+	
 	public static void driveBackwardsAndTurn() {
 		Move.stopDrivingForward();
 		Move.driveBackward(100);
@@ -19,11 +21,11 @@ public class Main {
 	
 	public static void main(String[] args) {
 		System.out.println("Follower");
-
 		while (true) {
-			while (is.getDistance() < 60.0 || Float.isNaN(is.getDistance())) {
-				
+			if (ur.getDistance() > 30.0 || Float.isNaN(ur.getDistance())) {
 				IRSeeker.driveToBall(400);
+			} else {
+				Move.stopDrivingForward();
 			}
 		}
 	}
