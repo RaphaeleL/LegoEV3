@@ -1,14 +1,14 @@
 #!/usr/bin/env pybricks-micropython
 
 from pybricks import ev3brick as brick
-from pybricks.ev3devices import (Motor, TouchSensor, ColorSensor, InfraredSensor, UltrasonicSensor, GyroSensor)
+from pybricks.ev3devices import (Motor, TouchSensor, ColorSensor,  InfraredSensor, UltrasonicSensor, GyroSensor)
 from pybricks.parameters import (Port, Stop, Direction, Button, Color, SoundFile, ImageFile, Align)
 from pybricks.tools import print, wait, StopWatch
 from pybricks.robotics import DriveBase
 
 # Init of Engine
 engine, wheels, infrared = Motor(Port.D), Motor(Port.A), InfraredSensor(Port.S4)
-color_1, color_2 = ColorSensor(Port.S1), ColorSensor(Port.S2)
+color_1 = ColorSensor(Port.S1)
 
 # Init of Variables
 speed_of_engine, speed_of_wheels, time_of_wheels = 2000, 500, 300
@@ -37,10 +37,10 @@ while True:
     # Messure the Distance to the front
     distance_to_front = infrared.distance()
     color_of_c1 = color_1.color()
-    color_of_c2 = color_2.rgb()
 
     # Check if there are any Obstacles or something read
-    if distance_to_front < 50 or color_of_c1 == Color.RED or color_of_c2 == Color.RED:
+    if distance_to_front < 50 or color_of_c1 == Color.RED:
+        
         # Stop Engine
         engine.stop()
         wheels.stop()
@@ -52,7 +52,7 @@ while True:
     else:
 
         # Feedback for the User --> All okay
-        attentionPlease(SoundFile.SNEEZING, ImageFile.GREEN, Color.UP, "Hotrod", (60,10), False)
+        attentionPlease(SoundFile.SNEEZING, ImageFile.UP, Color.GREEN, "Hotrod", (60,10), False)
 
         # Get the pushed Buttons of the Remote Controll
         pressed_key = infrared.buttons(1)
