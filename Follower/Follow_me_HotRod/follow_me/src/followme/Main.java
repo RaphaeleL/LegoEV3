@@ -5,12 +5,15 @@ import lejos.hardware.port.SensorPort;
 import lejos.utility.Delay;
 
 public class Main {
-    
+	
+	// Initialisierung der Hi Technik Infrarod Sensors
 	private static IRSeeker is = new IRSeeker(SensorPort.S3);
+	// Initialisierung der Motoren
 	private static Move move = new Move(MotorPort.A, MotorPort.D);
-
+	// Initialisierung des Ultraschallsensors
 	private static UltrasonicSensor ur = new UltrasonicSensor(SensorPort.S2);
 	
+	// Fahre etwas zurück und drehe dich (z. B. gegen etwas gefahren)
 	public static void driveBackwardsAndTurn() {
 		Move.stopDrivingForward();
 		Move.driveBackward(100);
@@ -20,10 +23,14 @@ public class Main {
 	}
 	
 	public static void main(String[] args) {
+		// Gebe "Follower" auf dem Brick Display aus
 		System.out.println("Follower");
+		// Endlosschleife
 		while (true) {
+			// Distanz okay? 
 			if (ur.getDistance() > 30.0 || Float.isNaN(ur.getDistance())) {
 				IRSeeker.driveToBall(400);
+			// Distanz nicht okay!
 			} else {
 				Move.stopDrivingForward();
 			}

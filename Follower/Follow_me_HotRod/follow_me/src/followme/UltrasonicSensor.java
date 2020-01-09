@@ -13,10 +13,7 @@ public class UltrasonicSensor {
 	private static SampleProvider sp;
 	private static float[] sample;
 
-	/**
-	 * Initialiseren des Ultraschallsensors
-	 * @param port Port in welchem der Sensor im EV3-Baustein eingesteckt ist
-	 */
+	// Konstruktor (mache den Sensor ready)
 	public UltrasonicSensor(Port port) {
 		this.us1 = new EV3UltrasonicSensor(port);
 		this.sp = us1.getDistanceMode();
@@ -24,19 +21,16 @@ public class UltrasonicSensor {
 
 	}
 	
+	// Nicht genutzt
 	public static int getDirection() {
 		int distance = 1;
 		return distance;
 	}
 
-	/**
-	 * Distanz in cm welche vom Ultraschallsensor gemessen wird.
-	 * @return Abstand zum Hindernis
-	 */
+	// Bekomme den Abstand nach vorne
 	public static float getDistance() {
 		sp.fetchSample(sample, 0);
 		float result = sample[0];
-//		System.out.println("Distance: " + result * 100);
 		return result * 100;
 	}
 	

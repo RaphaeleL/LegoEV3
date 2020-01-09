@@ -62,7 +62,7 @@ while True:
 
             # Straight --> Upper Left
             if button == 128: engine.run(speed_of_engine)
-            # Break --> Bottom Left
+            # Break --> Bottom Left | >>ATTENTION PLEASE: HERE COULD BE BACKWARDS<<
             elif button == 2: engine.stop()
             # Left --> Bottom Right
             elif button == 512: wheels.run_time(speed_of_wheels, time_of_wheels)
@@ -70,8 +70,6 @@ while True:
             elif button == 8: wheels.run_time(-1 * speed_of_wheels, time_of_wheels)
             # Nothing pressed
             else: wheels.stop()
-                #engine.stop()
-                #wheels.stop()
 
     # Are the Battery Okay?
     if brick.battery.voltage() < 7000:
