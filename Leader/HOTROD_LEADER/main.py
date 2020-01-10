@@ -13,13 +13,15 @@ color_1 = ColorSensor(Port.S1)
 # Init of Variables
 speed_of_engine, speed_of_wheels, time_of_wheels = 2000, 500, 300
 
-def attentionPlease(soundfile, imagefile, color, text, pos, beep):
+def attentionPlease2(soundfile, beep):
     # Make a Beep :-)
     if beep: brick.sound.beep(1500, 1000, 50)
 
     # Say Hello
     brick.sound.file(soundfile)
 
+def attentionPlease(imagefile, color, text, pos):
+    
     # Make Red Light on the Brick
     brick.light(color)
 
@@ -29,7 +31,8 @@ def attentionPlease(soundfile, imagefile, color, text, pos, beep):
     brick.display.text(text, pos)
 
 # Start Procedure --> Hey User, all okay. I'm Ready now.
-attentionPlease(SoundFile.HELLO, ImageFile.UP, Color.GREEN, "Hotrod", (60,10), True)
+attentionPlease2(SoundFile.HELLO, True)
+attentionPlease(ImageFile.UP, Color.GREEN, "Hotrod", (60,10))
 
 # Infinity Loop
 while True:
@@ -46,13 +49,14 @@ while True:
         wheels.stop()
 
         # Troubleshooting for the User
-        attentionPlease(SoundFile.ERROR_ALARM, ImageFile.KNOCKED_OUT, Color.RED, "Hotrod", (60,10), False)
+        attentionPlease2(SoundFile.ERROR_ALARM, False) 
+        attentionPlease(ImageFile.KNOCKED_OUT, Color.RED, "Hotrod", (60,10))
 
     # Distance is Okay. You can drive
     else:
 
         # Feedback for the User --> All okay
-        attentionPlease(SoundFile.SNEEZING, ImageFile.UP, Color.GREEN, "Hotrod", (60,10), False)
+        attentionPlease(ImageFile.UP, Color.GREEN, "Hotrod", (60,10))
 
         # Get the pushed Buttons of the Remote Controll
         pressed_key = infrared.buttons(1)
