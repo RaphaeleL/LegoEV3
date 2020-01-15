@@ -6,7 +6,7 @@ from pybricks.parameters import (Port, Stop, Direction, Button, Color, SoundFile
 from pybricks.tools import print, wait, StopWatch
 from pybricks.robotics import DriveBase
 
-# Init of Engine
+# Init of Engine and Sensor
 engine, wheels, infrared = Motor(Port.D), Motor(Port.A), InfraredSensor(Port.S4)
 
 # Init of Variables
