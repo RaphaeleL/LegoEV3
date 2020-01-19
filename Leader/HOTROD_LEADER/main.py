@@ -6,8 +6,11 @@ from pybricks.parameters import (Port, Stop, Direction, Button, Color, SoundFile
 from pybricks.tools import print, wait, StopWatch
 from pybricks.robotics import DriveBase
 
-# Init of Engine and Sensor
-engine, wheels, infrared = Motor(Port.D), Motor(Port.A), InfraredSensor(Port.S4)
+# Init of Engines
+engine, wheels = Motor(Port.D), Motor(Port.A)
+# Init of Sensors
+infrared = InfraredSensor(Port.S4)
+#color = ColorSensor(Port.S1)
 
 # Init of Variables
 speed_of_engine, speed_of_wheels, time_of_wheels = 2000, 500, 300
@@ -39,8 +42,11 @@ while True:
     # Messure the Distance to the front
     distance_to_front = infrared.distance()
 
-    # Check if there are any Obstacles or something read
-    if distance_to_front < 50:
+    # Messure the Color to the front
+    #color_to_front = color.color()
+
+    # Check if there are any Obstacles or something red
+    if distance_to_front < 50:# or color_to_front == Color.RED:
         
         # Stop Engine
         engine.stop()
