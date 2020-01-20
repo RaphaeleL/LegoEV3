@@ -79,7 +79,7 @@ while True:
             # Nothing pressed
             else: wheels.stop()
 
-    # Are the Battery Okay?
+    # Battery okay?
     if brick.battery.voltage() < 7000:
         # Make a Beep :(
         brick.sound.beep()
