@@ -49,8 +49,7 @@ while True:
     if distance_to_front < 50 or color_1_to_front == Color.RED:
         
         # Stop Engine
-        engine.stop()
-        wheels.stop()
+        engine.run_time(-1 * speed_of_engine, 1000)
 
         # Troubleshooting for the User
         attentionPlease2(SoundFile.ERROR_ALARM, False) 
@@ -70,8 +69,8 @@ while True:
 
             # Straight --> Upper Left
             if button == 128: engine.run(speed_of_engine)
-            # Backwards --> Bottom Left | >>ATTENTION PLEASE: HERE COULD BE THE BREAK<<
-            elif button == 2: engine.run_timie(-1 * speed_of_engine, 1000)
+            # Break --> Bottom Left
+            elif button == 2: engine.stop()
             # Left --> Bottom Right
             elif button == 512: wheels.run_time(speed_of_wheels, time_of_wheels)
             # Right --> Upper Right
