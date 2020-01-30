@@ -70,8 +70,8 @@ while True:
 
             # Straight --> Upper Left
             if button == 128: engine.run(speed_of_engine)
-            # Break --> Bottom Left | >>ATTENTION PLEASE: HERE COULD BE BACKWARDS<<
-            elif button == 2: engine.stop()
+            # Backwards --> Bottom Left | >>ATTENTION PLEASE: HERE COULD BE THE BREAK<<
+            elif button == 2: engine.run_timie(-1 * speed_of_engine, 1000)
             # Left --> Bottom Right
             elif button == 512: wheels.run_time(speed_of_wheels, time_of_wheels)
             # Right --> Upper Right
